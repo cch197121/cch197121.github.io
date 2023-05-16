@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
 	<title>mine的网站</title>
 	<meta charset="UTF-8">
