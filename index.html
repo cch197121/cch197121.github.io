@@ -14,45 +14,31 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="style.css">
 </head>	<ul class="sites gclearfix">
-		
-<body> <style>{
-		
-			color: white;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 4px;
-			cursor: pointer;
-		}
-		
-		img {
-			display: block;
-			margin: 0 auto;
+		<style>
+		body {
+			background-image: url("哆啦A梦.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			transition: background-image 2s ease-in-out;
 		}
 	</style>
-	<body>
-	<h1>动态网页示例</h1>
-	<button onclick="changeColor()">改变背景颜色</button>
-	<br>
-	<img id="myImage" src="image1.jpg" alt="图片描述">
+</head>
+<body>
 	<script>
-		var images = ['夕阳西下.png', '极光.png', 'image3.jpg', '哆啦A梦.jpg'];
-		var idx = 0;
-		var intervalId;
+		var images = ["哆啦A梦.jpg", "极光.png", "夕阳西下.png", "图片4.jpg"];
+		var currentIndex = 0;
+		var interval = setInterval(changeBackground, 5000);
 		
-		function changeColor() {
-			document.body.style.backgroundColor = "#333";
-			intervalId = setInterval(changeImage, 2000);
-		}
-		
-		function changeImage() {
-			document.getElementById('myImage').src = images[idx];
-			idx++;
-			if (idx >= images.length) {
-				idx = 0;
+		function changeBackground() {
+			currentIndex++;
+			if (currentIndex == images.length) {
+				currentIndex = 0;
 			}
+			document.body.style.backgroundImage = "url('" + images[currentIndex] + "')";
 		}
 	</script>
-</body>
+	</body>
 
 	<header>
 		<!欢迎来到mine的网站>
