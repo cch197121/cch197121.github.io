@@ -16,15 +16,7 @@
 </head>	<ul class="sites gclearfix">
 		
 <body> <style>{
-			background-color: #f2f2f2;
-		}
 		
-		h1 {
-			color: #333;
-		}
-		
-		button {
-			background-color: #4CAF50;
 			color: white;
 			padding: 10px 20px;
 			border: none;
@@ -43,13 +35,13 @@
 	<br>
 	<img id="myImage" src="image1.jpg" alt="图片描述">
 	<script>
-		var images = ['夕阳西下.png', '极光.png', 'image3.jpg', 'image4.jpg'];
+		var images = ['夕阳西下.png', '极光.png', 'image3.jpg', '哆啦A梦.jpg'];
 		var idx = 0;
 		var intervalId;
 		
 		function changeColor() {
 			document.body.style.backgroundColor = "#333";
-			intervalId = setInterval(changeImage, 1000);
+			intervalId = setInterval(changeImage, 2000);
 		}
 		
 		function changeImage() {
