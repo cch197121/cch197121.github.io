@@ -15,40 +15,52 @@
 	<link rel="stylesheet" href="style.css">
 </head>	<ul class="sites gclearfix">
 		
-<body>  <style> 
-	body { background-image: url("https://www.mms591.com/www.mms591.com-photo/20170605/1-1F6051J628_960x800.jpg"); 
-	background-size: 100% auto
-	// 需要用到的变量
-var images = [
-  "夕阳西下.png",
-  "极光.png,
-  "image3.jpg",
-  "image4.jpg"
-];
-var currentImageIndex = 0;
-var bgImage = document.getElementById("bg-image");
-
-// 每隔一定时间切换背景图片
-setInterval(changeBackground, 5000);
-
-// 切换背景图片函数
-function changeBackground() {
-  // 更新计数器
-  currentImageIndex++;
-
-  // 如果计数器等于图片数量，则重新开始循环
-  if (currentImageIndex == images.length) {
-    currentImageIndex = 0;
-  }
-
-  // 设置背景图片URL为下一张图片
-  bgImage.style.backgroundImage = "url("夕阳西下.png + images[currentImageIndex] +1 ")";"url("极光.png + images[currentImageIndex] +1 ")";
-}
-
+<body> <style>{
+			background-color: #f2f2f2;
+		}
 		
-	<img srcset="image-large.jpg 1200w, image-medium.jpg 800w, image-small.jpg 400w" sizes="(min-width: 1200px) 1200px, (min-width: 768px) 800px, 400px" src="image-small.jpg" alt="Image">
-	}
+		h1 {
+			color: #333;
+		}
+		
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		
+		img {
+			display: block;
+			margin: 0 auto;
+		}
 	</style>
+	<body>
+	<h1>动态网页示例</h1>
+	<button onclick="changeColor()">改变背景颜色</button>
+	<br>
+	<img id="myImage" src="image1.jpg" alt="图片描述">
+	<script>
+		var images = ['夕阳西下.png', '极光.png', 'image3.jpg', 'image4.jpg'];
+		var idx = 0;
+		var intervalId;
+		
+		function changeColor() {
+			document.body.style.backgroundColor = "#333";
+			intervalId = setInterval(changeImage, 1000);
+		}
+		
+		function changeImage() {
+			document.getElementById('myImage').src = images[idx];
+			idx++;
+			if (idx >= images.length) {
+				idx = 0;
+			}
+		}
+	</script>
+</body>
 
 	<header>
 		<!欢迎来到mine的网站>
