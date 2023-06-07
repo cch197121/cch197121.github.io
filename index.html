@@ -22,6 +22,15 @@
 			background-position: center center;
 			transition: background-image 2s ease-in-out;
 		}
+		audio {
+		    width: 250px;
+		    height: 30px;
+		    background-color: #fff;
+		    position: fixed;
+		    bottom: 0;
+		    left: 0;
+		    z-index: 999;
+		}	
 	</style>
 </head>
 <body>	<script src="canvas-nest.min.js"></script>
@@ -37,6 +46,7 @@
 			}
 			document.body.style.backgroundImage = "url('" + images[currentIndex] + "')";
 		}
+	<audio src="第五人格(纯音乐)-阿灰.flac" autoplay loop controls></audio>
 	</script>
 	</body>
 
