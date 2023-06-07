@@ -14,16 +14,22 @@
 		}
 	</style>
 </head>
+
 <body>
-	<audio id="bg-music" autoplay loop>
+	<audio id="bg-music-1" loop>
   		<source src="第五人格(纯音乐)-阿灰.mp3" type="audio/mp3">
   	</audio>
-	<script src="canvas-nest.min.js"></script>
+
+  	<audio id="bg-music-2" loop>
+  		<source src="樱花树下.mp3" type="audio/mp3">
+  	</audio>
+
+  	<script src="canvas-nest.min.js"></script>
 	<script> 
 		var images = ["哆啦A梦.jpg", "极光.png", "夕阳西下.png", "高木同学.jpeg"];
 		var currentIndex = 0;
 		var interval = setInterval(changeBackground, 5000);
-		
+
 		function changeBackground() {
 			currentIndex++;
 			if (currentIndex == images.length) {
@@ -31,10 +37,26 @@
 			}
 			document.body.style.backgroundImage = "url('" + images[currentIndex] + "')";
 		}
-		
-		var music = document.getElementById("bg-music");
-	  	music.loop = true; // 循环播放
-	    music.autoplay = true; // 自动播放
+
+		var currentMusic = 1; // 当前正在播放的音乐
+		var music1 = document.getElementById("bg-music-1");
+		var music2 = document.getElementById("bg-music-2");
+
+	    music1.autoplay = true; // 自动播放第一个音乐
+	  	music1.play(); // 开始播放第一个音乐
+
+		// 每次播放结束后，切换到另一个音乐并开始播放
+		music1.addEventListener("ended", function() {
+			currentMusic = 2;
+			music2.play();
+			music1.pause();
+		});
+
+		music2.addEventListener("ended", function() {
+			currentMusic = 1;
+			music1.play();
+			music2.pause();
+		});
 	</script>
 
 	<header>
@@ -65,5 +87,6 @@
 	</footer>
 
 	<script src="script.js"></script>
+
 </body>
 </html>
