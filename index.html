@@ -1,20 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>	<ul class="sites gclearfix">
-		<li class="item"><a href="https://chat.wuguokai.cn/#/chat">免费学习测试</a> </li>
-		<li class="item"><a href="https://chat.wobcw.com/">wo chat</a></li>
-		<li class="item"><a href="https://tuostudy.com/">图欧学习资源库</a></li>
-		<li class="item"><a href="https://www.freeok.vip/">freeOK</a></li>
-		<li class="item"><a href="https://www.upyunso.com/">up云搜</a></li>
-		<li class="item"><a href="https://sphard.com/%E4%B8%80%E4%BA%9B%E5%85%8D%E8%B4%B9%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90.html">一些免费的学习资源</a></li>
-		<li class="item"><a href="https://tool.liumingye.cn/music/?page=searchPage#/">myfreemp3</a></li>
-		<li class="item"><a href="https://www.dianyinggou.com/">电影狗</a></li>
-		<li class="item"><a href="https://5dy15.cc/">555电影</a></li>
+<head>
 	<title>mine的网站</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="style.css">
-</head>	<ul class="sites gclearfix">
-		<style>
+	<style>
 		body {
 			background-image: url("哆啦A梦.jpg");
 			background-size: cover;
@@ -22,10 +12,13 @@
 			background-position: center center;
 			transition: background-image 2s ease-in-out;
 		}
-		
 	</style>
 </head>
-<body>	<script src="canvas-nest.min.js"></script>
+<body>
+	<audio id="bg-music" autoplay loop>
+  		<source src="第五人格(纯音乐)-阿灰.mp3" type="audio/mp3">
+  	</audio>
+	<script src="canvas-nest.min.js"></script>
 	<script> 
 		var images = ["哆啦A梦.jpg", "极光.png", "夕阳西下.png", "高木同学.jpeg"];
 		var currentIndex = 0;
@@ -38,16 +31,14 @@
 			}
 			document.body.style.backgroundImage = "url('" + images[currentIndex] + "')";
 		}
-		<audio autoplay loop>
-  		<source src="第五人格(纯音乐)-阿灰.mp3" type="audio/mp3"></audio>
-		 var music = document.getElementById("bg-music");
-	  music.loop = true; // 循环播放
-	  music.autoplay = true; // 自动播放
+		
+		var music = document.getElementById("bg-music");
+	  	music.loop = true; // 循环播放
+	    music.autoplay = true; // 自动播放
 	</script>
-	</body>
 
 	<header>
-		<!欢迎来到mine的网站>
+		<h1>欢迎来到mine的网站</h1>
 	</header>
 
 	<main>
