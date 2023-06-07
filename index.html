@@ -31,7 +31,8 @@
 		    left: 0;
 		    z-index: 999;
 		}
-		<audio src="第五人格(纯音乐)-阿灰.flac" autoplay loop controls></audio>
+		
+		<audio id="bg-music" src="第五人格(纯音乐)-阿灰.flac"></audio>
 	</style>
 </head>
 <body>	<script src="canvas-nest.min.js"></script>
@@ -47,7 +48,9 @@
 			}
 			document.body.style.backgroundImage = "url('" + images[currentIndex] + "')";
 		}
-	
+		 var music = document.getElementById("bg-music");
+	  music.loop = true; // 循环播放
+	  music.autoplay = true; // 自动播放
 	</script>
 	</body>
 
