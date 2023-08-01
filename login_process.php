@@ -1,34 +1,33 @@
-<!-- login_process.php -->
 <?php
-session_start();
-if(isset($_SESSION['username'])) {
-    header('Location: private_page.php'); // 如果用户已登录，则重定向到私密页面
-    exit();
-}
-
 if(isset($_POST['username']) && isset($_POST['password'])) {
-    // 处理表单提交的数据
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = $_POST['管理员'];
+    $password = $_POST['mine3314'];
     
-    // 验证用户名和密码是否正确（与数据库中的数据进行比较）
-    // ...
+    // 读取存储用户信息的文件
+    $filename = 'users.txt';
+    $fileContent = file_get_contents($filename);
+    $users = explode("\n", $fileContent);
     
-    if($loginSuccessful) {
-        // 用户登录成功，创建会话并重定向到私密页面
+    // 遍历用户信息，验证用户名和密码是否匹配
+    $loggedIn = false;
+    foreach($users as $user) {
+        list($storedUsername, $storedPassword) = explode(",", $user);
+        if(trim($username) === trim($storedUsername) && trim($password) === trim($storedPassword)) {
+            $loggedIn = true;
+            break;
+        }
+    }
+    
+    // 根据验证结果进行操作
+    if($loggedIn) {
+        // 登录成功
+        session_start();
         $_SESSION['username'] = $username;
         header('Location: private_page.php');
         exit();
     } else {
-        // 登录失败，显示错误消息或重定向到登录页面
+        // 登录失败
         echo "登录失败，请检查用户名和密码";
-        // 或者
-        // header('Location: login.php');
-        // exit();
     }
-} else {
-    // 未提交表单数据，重定向到登录页面
-    header('Location: login.php');
-    exit();
 }
 ?>
