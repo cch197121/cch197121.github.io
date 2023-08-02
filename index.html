@@ -34,91 +34,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     </style>
 </head>
 <body>
-    <audio id="bg-music-1" loop>
-        <source src="第五人格(纯音乐)-阿灰.mp3" type="audio/mp3">
-    </audio>
-    <audio id="bg-music-2" loop>
-        <source src="推理之径-《第五人格 》游戏原声-阿灰.mp3" type="audio/mp3">
-    </audio>
-    <script src="canvas-nest.min.js"></script>
-    <script>
-        var images = ["哆啦A梦.jpg", "极光.png", "夕阳西下.png", "高木同学.jpeg"];
-        var currentIndex = 0;
-        var interval = setInterval(changeBackground, 5000);
+...
+<?php if (isset($error) && $error === true) : ?>
+    <p>用户名或密码错误，请重试。</p>
+<?php endif; ?>
 
-        function changeBackground() {
-            currentIndex++;
-            if (currentIndex == images.length) {
-                currentIndex = 0;
-            }
-            document.body.style.backgroundImage = "url('" + images[currentIndex] + "')";
-        }
+<?php if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) : ?>
+    <section>
+        <h2>登录</h2>
+        <form method="GET">
+            <input type="text" name="username" placeholder="用户名">
+            <input type="password" name="password" placeholder="密码">
+            <button type="submit">登录</button>
+        </form>
+    </section>
+<?php else : ?>
+    <section>
+        <h2>欢迎光临</h2>
+        <p>这里是网站的主要内容区域，您可以在这里放置您的文章、产品、图片等。</p>
+    </section>
+    <?php
+    // 如果已登录，将页面重定向到私密页面
+    header("Location: private_page.php");
+    exit();
+    ?>
+<?php endif; ?>
 
-        var currentMusic = 1; // 当前正在播放的音乐
-        var music1 = document.getElementById("bg-music-1");
-        var music2 = document.getElementById("bg-music-2");
+<section>
+    <h2>公司简介</h2>
+    <p>公司简介内容</p>
+</section>
 
-        music1.autoplay = true; // 自动播放第一个音乐
-        music1.play(); // 开始播放第一个音乐
-
-        // 每次播放结束后，切换到另一个音乐并开始播放
-        music1.addEventListener("ended", function() {
-            currentMusic = 2;
-            music2.play();
-            music1.pause();
-        });
-
-        music2.addEventListener("ended", function() {
-            currentMusic = 1;
-            music1.play();
-            music2.pause();
-        });
-    </script>
-    <header>
-        <h1>欢迎来到mine的网站</h1>
-    </header>
-    <main>
-        <?php if (isset($error) && $error === true) : ?>
-            <p>用户名或密码错误，请重试。</p>
-        <?php endif; ?>
-
-        <?php if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) : ?>
-            <section>
-                <h2>登录</h2>
-                <form method="GET">
-                    <input type="text" name="username" placeholder="用户名">
-                    <input type="password" name="password" placeholder="密码">
-                    <button type="submit">登录</button>
-                </form>
-            </section>
-        <?php else : ?>
-            <section>
-                <h2>欢迎光临</h2>
-                <p>这里是网站的主要内容区域，您可以在这里放置您的文章、产品、图片等。</p>
-            </section>
-            <?php
-            // 如果已登录，将页面重定向到私密页面
-            header("Location: private_page.php");
-            exit();
-            ?>
-        <?php endif; ?>
-        
-        <section>
-            <h2>公司简介</h2>
-            <p>公司简介内容</p>
-        </section>
-        
-        <section>
-            <h2>服务项目</h2>
-            <ul>
-                <li>项目1</li>
-                <li>项目2</li>
-                <li>项目3</li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>版权所有 ©2022 公司名称</p>
-    </footer>
-    <script src="script.js"></script>
+<section>
+    <h2>服务项目</h2>
+    <ul>
+        <li>项目1</li>
+        <li>项目2</li>
+        <li>项目3</li>
+    </ul>
+</section>
+...
 </body>
+</html>
