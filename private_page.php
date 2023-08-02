@@ -1,16 +1,20 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>私密空间</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <title>私密页面</title>
 </head>
 <body>
-    <h1>私密空间</h1>
-    <p>你好。</p>
-    <!-- 在这里添加你的私密内容 -->
-    <footer>
-        <p>版权所有 ©2022 公司名称</p>
-    </footer>
+    <h1>私密页面</h1>
+    <p>欢迎访问私密页面。</p>
+    <a href="logout.php">退出登录</a>
 </body>
 </html>
