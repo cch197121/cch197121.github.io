@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html> _ _
-<头>
-    < title >放弃空间</ title >
-    <元字符集= “UTF-8” >
-    <链接rel = “样式表”  href = “style.css” >
-</头>
-<正文>
-    < h1 >退出空间</ h1 >
-    <p>这是公开的内容，只有经过验证的用户才能看到。</p>
-    <!-- 在这里添加您感兴趣的内容 -->
-    <页脚>
-        < p >版权所有 ©2022 公司名称</ p >
-    </页脚>
-</正文>
-</html> _ _
+<html>
+<head>
+    <title>私密空间</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>私密空间</h1>
+    <p>这是私密内容，只有经过验证的用户才能看到。</p>
+    <!-- 在这里添加你的私密内容 -->
+    <footer>
+        <p>版权所有 ©2022 公司名称</p>
+    </footer>
+</body>
+</html>
