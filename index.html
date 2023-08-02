@@ -12,13 +12,27 @@
             background-position: center center;
             transition: background-image 2s ease-in-out;
         }
+        <section id="slideshow">
+    <img src="高木同学.jpeg" alt="Image 1">
+    <img src="极光.jpg" alt="Image 2">
+    <img src="image3.jpg" alt="Image 3">
+</section>
          
     </style>
      <script src="canvas-nest.min.js"></script>
+    <script>
+    var slideshow = document.getElementById("slideshow");
+    var images = slideshow.getElementsByTagName("img");
+    var currentImageIndex = 0;
+
+    setInterval(function() {
+        images[currentImageIndex].style.display = "none";
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        images[currentImageIndex].style.display = "block";
+    }, 3000);
+</script>
 </head>
 <body>
-
-       
     <section>
         <h2>欢迎光临</h2>
         <p>这里是网站的主要内容区域，您可以在这里放置您的文章、产品、图片等。</p>
