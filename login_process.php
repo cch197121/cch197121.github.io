@@ -1,33 +1,32 @@
 <?php
-if(isset($_POST['username']) && isset($_POST['password'])) {
-    $username = $_POST['管理员'];
-    $password = $_POST['mine3314'];
-    
-    // 读取存储用户信息的文件
-    $filename = 'users.txt';
-    $fileContent = file_get_contents($filename);
-    $users = explode("\n", $fileContent);
-    
-    // 遍历用户信息，验证用户名和密码是否匹配
-    $loggedIn = false;
-    foreach($users as $user) {
-        list($storedUsername, $storedPassword) = explode(",", $user);
-        if(trim($username) === trim($storedUsername) && trim($password) === trim($storedPassword)) {
-            $loggedIn = true;
-            break;
-        }
-    }
-    
-    // 根据验证结果进行操作
-    if($loggedIn) {
-        // 登录成功
-        session_start();
-        $_SESSION['username'] = $username;
-        header('Location: private_page.php');
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // 在此进行用户名和密码的验证
+    if ($username === 'admin' && $password === 'password') {
+        $_SESSION['logged_in'] = true;
+        header("Location: private_page.php");
         exit();
     } else {
-        // 登录失败
-        echo "登录失败，请检查用户名和密码";
+        $error = "用户名或密码错误，请重试。";
     }
+} else {
+    header("Location: login.php");
+    exit();
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录处理</title>
+</head>
+<body>
+    <?php if (isset($error)) : ?>
+        <p><?php echo $error; ?></p>
+    <?php endif; ?>
+</body>
+</html>
