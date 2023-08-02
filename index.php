@@ -2,9 +2,9 @@
 session_start();
 
 // 处理用户登录逻辑
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $username = $_GET['username'];
-    $password = $_GET['password'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
     // 在此进行用户名和密码的验证
     if ($username === '管理员' && $password === 'mine3314') {
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 <?php if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) : ?>
     <section>
         <h2>登录</h2>
-        <form method="GET">
+        <form method="POST" action="login_process.php">
             <input type="text" name="username" placeholder="用户名">
             <input type="password" name="password" placeholder="密码">
             <button type="submit">登录</button>
