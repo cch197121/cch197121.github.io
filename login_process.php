@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // 在此进行用户名和密码的验证
-    if ($username === 'admin' && $password === 'password') {
+    if ($username === 'admin' && $password === 'mine3314') {
         $_SESSION['logged_in'] = true;
         header("Location: private_page.php");
         exit();
