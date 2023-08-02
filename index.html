@@ -96,6 +96,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 <h2>欢迎光临</h2>
                 <p>这里是网站的主要内容区域，您可以在这里放置您的文章、产品、图片等。</p>
             </section>
+            <?php
+            // 如果已登录，将页面重定向到私密页面
+            header("Location: private_page.php");
+            exit();
+            ?>
         <?php endif; ?>
         
         <section>
@@ -117,4 +122,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     </footer>
     <script src="script.js"></script>
 </body>
-</html>
