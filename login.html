@@ -5,14 +5,29 @@
 </head>
 <body>
     <h1>登录页面</h1>
-    <form action="login_process.php" method="post">
+    <form>
         <label for="username">用户名：</label>
-        <input type="text" name="username" id="username" value="admin" required>
+        <input type="text" name="username" id="username" required>
         <br>
         <label for="password">密码：</label>
-        <input type="password" name="password" id="password" value="mine3314" required>
+        <input type="password" name="password" id="password" required>
         <br>
-        <input type="submit" value="登录">
+        <input type="button" value="登录" onclick="login()">
     </form>
+
+    <script>
+        function login() {
+            // 获取用户名和密码输入框的值
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username === "admin" && password === "mine3314") {
+                // 登录成功，重定向到私密空间页面
+                window.location.href = "private.html";
+            } else {
+                // 登录失败，显示错误消息
+                alert("无效的用户名或密码，请重试！");
+            }
+        }
+    </script>
 </body>
 </html>
