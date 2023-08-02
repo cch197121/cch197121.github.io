@@ -1,47 +1,37 @@
-<!-- private_page.php -->
+<?php
+session_start();
+
+// 检查用户是否已登录，如果未登录，则重定向到登录页面
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>私密页面</title>
+    <title>mine的网站 - 私密内容</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* 自定义样式 */
+    </style>
 </head>
 <body>
-    <h1>私密页面</h1>
-    
-    <!-- 密码和身份验证的表单 -->
-    <div id="authentication-form">
-        <h2>请输入密码和身份验证信息</h2>
-        <form onsubmit="authenticate(event)">
-            <input type="text" id="username" placeholder="用户名" required>
-            <input type="password" id="password" placeholder="密码" required>
-            <button type="submit">验证</button>
-        </form>
-    </div>
-    
-    <!-- 其他私密内容 -->
-    <p>这是私密页面的其他内容。</p>
-    
-    <script>
-        function authenticate(event) {
-            event.preventDefault();
-            
-            var usernameInput = document.getElementById("username");
-            var passwordInput = document.getElementById("password");
-            
-            // 获取用户输入的用户名和密码
-            var username = usernameInput.value;
-            var password = passwordInput.value;
-            
-            // 验证用户名和密码是否与管理员的登录信息匹配
-            if (username === "管理员" && password === "mine3314") {
-                // 验证通过，允许访问私密内容
-                
-            } else {
-                // 验证失败，显示错误消息或重定向到其他页面
-                
-            }
-        }
-    </script>
+    <header>
+        <h1>欢迎来到mine的网站 - 私密空间</h1>
+    </header>
+    <main>
+        <section>
+            <h2>私密内容</h2>
+            <p>这里是您的私密内容。</p>
+            <a href="logout.php">注销</a>
+        </section>
+    </main>
+    <footer>
+        <p>版权所有 ©2022 公司名称</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
