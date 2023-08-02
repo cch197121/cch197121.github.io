@@ -70,8 +70,9 @@
             // 在此进行用户名和密码的验证
             if ($username === '管理员' && $password === 'mine3314') {
                 $_SESSION['logged_in'] = true;
-                header("Location: private_page.php");
-                exit();
+                echo "<script>window.location.href = 'private_page.php';</script>";
+exit();
+
             } else {
                 $error = true;
             }
